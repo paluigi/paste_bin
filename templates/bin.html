@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row g-2 p-5">
+    <h1>{% block title %} {{ bin['title'] }} {% endblock %}</h1>
+    <div class='bin'>
+        <h4>Date: {{ bin['date'] }}</h4>
+        <p>{{ bin['content'] }}</p>
+    </div>
+</div>
+
+{% endblock %}

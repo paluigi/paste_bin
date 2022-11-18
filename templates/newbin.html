@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row g-2 p-5">
+    <h1>{% block title %} Create a new bin {% endblock %}</h1>
+    <form method="POST" action="/form">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label for="title">{{ form.title.label }}:</label>
+            {{ form.title(class_="form-control") }}     
+        </div>
+
+        {% if form.title.errors %}
+            <ul class="errors">
+                {% for error in form.title.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <br>
+        <div class="form-group">
+            <label for="content">{{ form.content.label }}:</label>
+            {{ form.content(class_="form-control") }}
+        </div>
+        {% if form.content.errors %}
+            <ul class="errors">
+                {% for error in form.content.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <br>
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
+    
+{% endblock %}

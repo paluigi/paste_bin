@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row p-5">
+    <h1>Public bins</h1>
+    <div class="row g-2">
+        {% for bin in bins %}
+        <div class="col-4">
+            <div class="p-3 border bg-white rounded">
+                <h3>Title: {{ bin['title'] }}</h3>
+                <h4>Date: {{ bin['date'] }}</h4>
+                <p><a href = "{{ url_for('show_bin', key=bin['key']) }}" >Open to view content</a></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>    
+{% endblock %}
