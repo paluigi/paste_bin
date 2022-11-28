@@ -29,7 +29,7 @@ def index():
     while res.last:
         res = db.fetch(last=res.last)
         bins += res.items
-
+    bins = sorted(bins, key= lambda d: d.get("date"), reverse=True)
     return render_template('index.html', bins=bins)
 
 
